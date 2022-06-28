@@ -1,0 +1,112 @@
+$screen-sm: 560px;
+$screen-md: 768px;
+$screen-lg: 1000px;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #161616;
+  color: #fff;
+  // font-family: 'Neue Machina';
+  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Zilla Slab', serif;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media screen and (min-width: $screen-sm) {
+    max-width: $screen-sm;
+  }
+
+  @media screen and (min-width: $screen-md) {
+    max-width: $screen-md;
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    max-width: $screen-lg;
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  &-header {
+    font-size: 36px;
+    letter-spacing: 2px;
+
+    @media screen and (min-width: $screen-sm) {
+      font-size: 44px;
+    }
+
+    @media screen and (min-width: $screen-md) {
+      font-size: 60px;
+    }
+
+    @media screen and (min-width: $screen-lg) {
+      font-size: 80px;
+    }
+  }
+
+  &-description {
+    font-size: 18px;
+    line-height: 40px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.6);
+
+    span {
+      color: #42b883;
+    }
+
+    @media screen and (min-width: $screen-sm) {
+      font-size: 24px;
+    }
+  }
+
+  &-list {
+    list-style: none;
+    margin-top: 100px;
+
+    &__link {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      text-align: right;
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      img {
+        margin-left: 10px;
+      }
+
+      a {
+        color: #ccc;
+        transition: 0.3s;
+
+        &:hover {
+          color: rgb(169, 169, 169);
+        }
+
+        &:visited {
+          color: darkcyan;
+        }
+      }
+    }
+  }
+}
