@@ -114,30 +114,30 @@ const buildMarkup = () => {
 };
 
 const buildScript = () => {
-  return gulp.src(['app/src/js/script.min.js']).pipe(gulp.dest('dist/js'));
+  return gulp.src(['app/src/js/script.min.js']).pipe(gulp.dest('dist/src/js'));
 };
 
 const buildStyle = () => {
-  return gulp.src(['app/src/css/style.min.css']).pipe(gulp.dest('dist/css'));
+  return gulp.src(['app/src/css/style.min.css']).pipe(gulp.dest('dist/src/css'));
 };
 
-const buildFonts = () => {
-  return gulp.src(['app/src/fonts/**/*']).pipe(gulp.dest('dist/fonts'));
+const buildAssets = () => {
+  return gulp.src(['app/src/assets/**/**/*']).pipe(gulp.dest('dist/src/assets'));
 };
 
-const buildImage = () => {
-  return gulp.src(['app/src/img/**/*']).pipe(gulp.dest('d ist/img'));
-};
+// const buildImage = () => {
+//   return gulp.src(['app/src/img/**/*']).pipe(gulp.dest('dist/src/img'));
+// };
+
+// const buildFiles = () => {
+//   return gulp.src(['app/src/files/**/*']).pipe(gulp.dest('dist/src/files'));
+// };
 
 const removeDocs = () => {
   return del('dist');
 };
 
-const build = gulp.series(
-  removeDocs,
-  compile,
-  gulp.parallel(buildMarkup, buildScript, buildStyle, buildFonts, buildImage)
-);
+const build = gulp.series(removeDocs, compile, gulp.parallel(buildMarkup, buildScript, buildStyle, buildAssets));
 
 gulp.task('build', build);
 gulp.task('default', defaultTasks);
